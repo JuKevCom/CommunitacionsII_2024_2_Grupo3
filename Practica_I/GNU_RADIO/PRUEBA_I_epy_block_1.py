@@ -25,4 +25,4 @@ class blk (gr. sync_block ):
 		diff = np. cumsum (x) - self . acum_anterior
 		self . acum_anterior = diff [N -1]
 		y0 [:] = diff
-		return len (y0)
+		return len(y0)
