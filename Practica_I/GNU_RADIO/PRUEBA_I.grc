@@ -168,9 +168,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1816, 312.0]
+    coordinate: [1248, 376.0]
     rotation: 0
-    state: disabled
+    state: enabled
 - name: analog_noise_source_x_0
   id: analog_noise_source_x
   parameters:
@@ -187,7 +187,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [112, 420.0]
+    coordinate: [120, 424.0]
     rotation: 0
     state: true
 - name: analog_sig_source_x_0
@@ -202,9 +202,10 @@ blocks:
     minoutbuf: '0'
     offset: '0'
     phase: '0'
-    samp_rate: samp_rate
+    samp_rate: '60000'
+    showports: 'False'
     type: float
-    waveform: analog.GR_TRI_WAVE
+    waveform: analog.GR_COS_WAVE
   states:
     bus_sink: false
     bus_source: false
@@ -246,7 +247,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [664, 428.0]
+    coordinate: [640, 552.0]
     rotation: 0
     state: disabled
 - name: blocks_vector_source_x_0
@@ -294,9 +295,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [384, 144.0]
+    coordinate: [760, 368.0]
     rotation: 0
-    state: disabled
+    state: enabled
 - name: epy_block_0_0
   id: epy_block
   parameters:
@@ -382,9 +383,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1512, 312.0]
+    coordinate: [968, 376.0]
     rotation: 0
-    state: disabled
+    state: enabled
 - name: epy_block_1_0
   id: epy_block
   parameters:
@@ -411,7 +412,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [608, 432.0]
+    coordinate: [584, 424.0]
     rotation: 0
     state: enabled
 - name: qtgui_histogram_sink_x_0
@@ -714,7 +715,7 @@ blocks:
     marker7: '-1'
     marker8: '-1'
     marker9: '-1'
-    name: '""'
+    name: '"DERIVADA"'
     nconnections: '1'
     size: '100000'
     srate: samp_rate
@@ -755,7 +756,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [864, 412.0]
+    coordinate: [760, 448.0]
     rotation: 0
     state: enabled
 - name: qtgui_time_sink_x_1_0
@@ -811,7 +812,7 @@ blocks:
     marker7: '-1'
     marker8: '-1'
     marker9: '-1'
-    name: '""'
+    name: "\"SE\xD1AL ORIGINAL\""
     nconnections: '2'
     size: '100'
     srate: samp_rate
@@ -852,7 +853,104 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [584, 220.0]
+    coordinate: [560, 240.0]
+    rotation: 0
+    state: enabled
+- name: qtgui_time_sink_x_1_1
+  id: qtgui_time_sink_x
+  parameters:
+    affinity: ''
+    alias: ''
+    alpha1: '1.0'
+    alpha10: '1.0'
+    alpha2: '1.0'
+    alpha3: '1.0'
+    alpha4: '1.0'
+    alpha5: '1.0'
+    alpha6: '1.0'
+    alpha7: '1.0'
+    alpha8: '1.0'
+    alpha9: '1.0'
+    autoscale: 'True'
+    axislabels: 'True'
+    color1: blue
+    color10: dark blue
+    color2: red
+    color3: green
+    color4: black
+    color5: cyan
+    color6: magenta
+    color7: yellow
+    color8: dark red
+    color9: dark green
+    comment: ''
+    ctrlpanel: 'False'
+    entags: 'False'
+    grid: 'False'
+    gui_hint: ''
+    label1: Signal 1
+    label10: Signal 10
+    label2: Signal 2
+    label3: Signal 3
+    label4: Signal 4
+    label5: Signal 5
+    label6: Signal 6
+    label7: Signal 7
+    label8: Signal 8
+    label9: Signal 9
+    legend: 'True'
+    marker1: '-1'
+    marker10: '-1'
+    marker2: '-1'
+    marker3: '-1'
+    marker4: '-1'
+    marker5: '-1'
+    marker6: '-1'
+    marker7: '-1'
+    marker8: '-1'
+    marker9: '-1'
+    name: '"INTEGRAL"'
+    nconnections: '1'
+    size: '100000'
+    srate: samp_rate
+    stemplot: 'False'
+    style1: '1'
+    style10: '1'
+    style2: '1'
+    style3: '1'
+    style4: '1'
+    style5: '1'
+    style6: '1'
+    style7: '1'
+    style8: '1'
+    style9: '1'
+    tr_chan: '0'
+    tr_delay: '0'
+    tr_level: '0.0'
+    tr_mode: qtgui.TRIG_MODE_FREE
+    tr_slope: qtgui.TRIG_SLOPE_POS
+    tr_tag: '""'
+    type: float
+    update_time: '0.5'
+    width1: '1'
+    width10: '1'
+    width2: '1'
+    width3: '1'
+    width4: '1'
+    width5: '1'
+    width6: '1'
+    width7: '1'
+    width8: '1'
+    width9: '1'
+    ylabel: Amplitude
+    ymax: '1'
+    ymin: '0'
+    yunit: '""'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [968, 216.0]
     rotation: 0
     state: enabled
 - name: rational_resampler_xxx_0
@@ -872,14 +970,13 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1248, 348.0]
+    coordinate: [1056, 408.0]
     rotation: 0
     state: disabled
 
 connections:
 - [analog_noise_source_x_0, '0', blocks_add_xx_0, '1']
 - [analog_sig_source_x_0, '0', blocks_add_xx_0, '0']
-- [analog_sig_source_x_0, '0', epy_block_0, '0']
 - [analog_sig_source_x_0, '0', epy_block_0_0, '0']
 - [analog_sig_source_x_0, '0', qtgui_number_sink_0, '2']
 - [analog_sig_source_x_0, '0', qtgui_time_sink_x_0, '2']
@@ -888,13 +985,10 @@ connections:
 - [blocks_add_xx_0, '0', qtgui_time_sink_x_1_0, '1']
 - [blocks_add_xx_0, '0', rational_resampler_xxx_0, '0']
 - [blocks_throttle_0, '0', qtgui_time_sink_x_1, '0']
-- [blocks_vector_source_x_0, '0', epy_block_0, '0']
 - [blocks_vector_source_x_0, '0', epy_block_0_0, '0']
 - [blocks_vector_source_x_0, '0', qtgui_time_sink_x_1_0, '0']
-- [epy_block_0, '0', qtgui_histogram_sink_x_0, '0']
-- [epy_block_0, '0', qtgui_number_sink_0, '0']
-- [epy_block_0, '0', qtgui_time_sink_x_0, '0']
-- [epy_block_0, '0', qtgui_time_sink_x_1, '0']
+- [epy_block_0, '0', epy_block_0_0_0, '0']
+- [epy_block_0, '0', qtgui_time_sink_x_1_1, '0']
 - [epy_block_0_0, '0', Medidas, '0']
 - [epy_block_0_0, '1', Medidas, '1']
 - [epy_block_0_0, '2', Medidas, '2']
@@ -906,9 +1000,10 @@ connections:
 - [epy_block_0_0_0, '3', Medidas_1, '3']
 - [epy_block_0_0_0, '4', Medidas_1, '4']
 - [epy_block_1_0, '0', blocks_throttle_0, '0']
+- [epy_block_1_0, '0', epy_block_0, '0']
 - [epy_block_1_0, '0', qtgui_time_sink_x_1, '0']
 - [rational_resampler_xxx_0, '0', epy_block_0_0_0, '0']
 
 metadata:
   file_format: 1
-  grc_version: 3.9.8.0
+  grc_version: v3.11.0.0git-810-g1ecb8565
