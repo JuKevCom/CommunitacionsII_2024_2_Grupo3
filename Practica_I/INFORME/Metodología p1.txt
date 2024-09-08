@@ -1,0 +1,9 @@
+La experimentación fue desarrollada en dos etapas, la primera en lo concerniente a generar el espacio de trabajo de GitHub y la segunda enfocada a la aplicación de la temática vista en clase.
+
+Durante la primera fase, se generó una rama(Practica_I) a partir de la principal, para trabajar en ella todo lo relacionado a este primer informe, en esta rama se creó la carpeta "Práctica_I", dentro de la cuál se crearón otras dos carpetas: GNU_RADIO, donde se gurdarían todos los archivos relacionados en dicho aplicativo, e INFORME, donde se irían guardando evidencias fotográficas de lo realizado y se desarrollaría el informe.(Fig. Practica_I)
+
+Fig. Practica_I
+
+A partir de la rama Practica_I, se creó una rama para cada miembro del grupo, de forma que cada uno podría desarrollar de manera independiente toda la práctica, aportando distintas evidencias y, a su vez, podrían realizar sus aportes indepentientes al informe previo su entrega (Fig. Branches).
+  
+Fig. Branches
