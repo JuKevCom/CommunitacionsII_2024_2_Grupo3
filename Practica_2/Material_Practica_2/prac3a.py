@@ -134,7 +134,7 @@ class prac3a(gr.top_block, Qt.QWidget):
         for c in range(0, 1):
             self.Menu_grid_layout_0.setColumnStretch(c, 1)
         self.qtgui_time_sink_x_0 = qtgui.time_sink_f(
-            (16*Sps), #size
+            (Sps*16), #size
             samp_rate, #samp_rate
             "", #name
             1, #number of inputs
@@ -257,13 +257,13 @@ class prac3a(gr.top_block, Qt.QWidget):
         self.connect((self.analog_random_source_x_0, 0), (self.blocks_char_to_float_0, 0))
         self.connect((self.blocks_add_xx_0, 0), (self.blocks_multiply_const_vxx_0, 0))
         self.connect((self.blocks_char_to_float_0, 0), (self.blocks_add_xx_0, 1))
+        self.connect((self.blocks_char_to_float_0, 0), (self.blocks_stream_to_vector_0, 0))
+        self.connect((self.blocks_char_to_float_0, 0), (self.qtgui_freq_sink_x_0, 0))
+        self.connect((self.blocks_char_to_float_0, 0), (self.qtgui_time_sink_x_0, 0))
         self.connect((self.blocks_complex_to_mag_squared_0, 0), (self.epy_block_0, 0))
         self.connect((self.blocks_multiply_const_vxx_0, 0), (self.interp_fir_filter_xxx_0, 0))
         self.connect((self.blocks_multiply_const_vxx_1, 0), (self.qtgui_vector_sink_f_0, 0))
         self.connect((self.blocks_stream_to_vector_0, 0), (self.fft_vxx_0, 0))
-        self.connect((self.blocks_throttle_0, 0), (self.blocks_stream_to_vector_0, 0))
-        self.connect((self.blocks_throttle_0, 0), (self.qtgui_freq_sink_x_0, 0))
-        self.connect((self.blocks_throttle_0, 0), (self.qtgui_time_sink_x_0, 0))
         self.connect((self.epy_block_0, 0), (self.blocks_multiply_const_vxx_1, 0))
         self.connect((self.fft_vxx_0, 0), (self.blocks_complex_to_mag_squared_0, 0))
         self.connect((self.interp_fir_filter_xxx_0, 0), (self.blocks_throttle_0, 0))

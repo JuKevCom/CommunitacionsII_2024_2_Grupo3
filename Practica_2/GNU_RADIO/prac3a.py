@@ -68,7 +68,7 @@ class prac3a(gr.top_block, Qt.QWidget):
         ##################################################
         # Variables
         ##################################################
-        self.h = h = np.ones(16)
+        self.h = h = (-1,-1, 0,1,1)
         self.Sps = Sps = len(h)
         self.Rb = Rb = 32000
         self.samp_rate = samp_rate = Rb*Sps
@@ -183,7 +183,7 @@ class prac3a(gr.top_block, Qt.QWidget):
         self.top_layout.addWidget(self._qtgui_time_sink_x_0_0_win)
         self.qtgui_time_sink_x_0_0.set_block_alias("P3")
         self.qtgui_time_sink_x_0 = qtgui.time_sink_f(
-            (8*Sps), #size
+            (16*Sps), #size
             samp_rate, #samp_rate
             "", #name
             1, #number of inputs
@@ -196,7 +196,7 @@ class prac3a(gr.top_block, Qt.QWidget):
 
         self.qtgui_time_sink_x_0.enable_tags(True)
         self.qtgui_time_sink_x_0.set_trigger_mode(qtgui.TRIG_MODE_FREE, qtgui.TRIG_SLOPE_POS, 0.0, 0, 0, "")
-        self.qtgui_time_sink_x_0.enable_autoscale(True)
+        self.qtgui_time_sink_x_0.enable_autoscale(False)
         self.qtgui_time_sink_x_0.enable_grid(False)
         self.qtgui_time_sink_x_0.enable_axis_labels(True)
         self.qtgui_time_sink_x_0.enable_control_panel(False)
@@ -334,7 +334,7 @@ class prac3a(gr.top_block, Qt.QWidget):
         self.blocks_null_sink_0 = blocks.null_sink(gr.sizeof_float*1)
         self.blocks_multiply_const_vxx_1 = blocks.multiply_const_vff([1/(N*samp_rate)]*N)
         self.blocks_multiply_const_vxx_0 = blocks.multiply_const_ff(2.)
-        self.blocks_file_source_0 = blocks.file_source(gr.sizeof_char*1, '/home/comu2_grupoc1/Documentos/LABCOMUC1/Comu2_C1_judika/Practica_2/GNU_RADIO/sonido.wav', True, 0, 0)
+        self.blocks_file_source_0 = blocks.file_source(gr.sizeof_char*1, '/home/comu2_grupoc1/Documentos/LABCOMUC1/Comu2_C1_judika/Practica_2/GNU_RADIO/rana.jpg', True, 0, 0)
         self.blocks_file_source_0.set_begin_tag(pmt.PMT_NIL)
         self.blocks_complex_to_mag_squared_0 = blocks.complex_to_mag_squared(N)
         self.blocks_char_to_float_0 = blocks.char_to_float(1, 1)
@@ -348,10 +348,10 @@ class prac3a(gr.top_block, Qt.QWidget):
         ##################################################
         self.connect((self.analog_const_source_x_0_0, 0), (self.blocks_add_xx_0, 0))
         self.connect((self.analog_noise_source_x_0, 0), (self.blocks_null_sink_0, 0))
+        self.connect((self.analog_noise_source_x_0, 0), (self.qtgui_freq_sink_x_0_0, 0))
+        self.connect((self.analog_noise_source_x_0, 0), (self.qtgui_time_sink_x_0_0, 0))
         self.connect((self.blocks_add_xx_0, 0), (self.blocks_multiply_const_vxx_0, 0))
         self.connect((self.blocks_char_to_float_0, 0), (self.blocks_add_xx_0, 1))
-        self.connect((self.blocks_char_to_float_0, 0), (self.qtgui_freq_sink_x_0_0, 0))
-        self.connect((self.blocks_char_to_float_0, 0), (self.qtgui_time_sink_x_0_0, 0))
         self.connect((self.blocks_complex_to_mag_squared_0, 0), (self.epy_block_0, 0))
         self.connect((self.blocks_file_source_0, 0), (self.blocks_unpack_k_bits_bb_0, 0))
         self.connect((self.blocks_multiply_const_vxx_0, 0), (self.interp_fir_filter_xxx_0, 0))

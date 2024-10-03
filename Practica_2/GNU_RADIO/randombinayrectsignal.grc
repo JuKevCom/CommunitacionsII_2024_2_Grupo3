@@ -73,7 +73,7 @@ blocks:
   id: variable
   parameters:
     comment: ''
-    value: np.ones(16)
+    value: (-1,-1, 0,1,1)
   states:
     bus_sink: false
     bus_source: false
@@ -183,6 +183,29 @@ blocks:
     coordinate: [16, 120.0]
     rotation: 0
     state: disabled
+- name: analog_sig_source_x_0
+  id: analog_sig_source_x
+  parameters:
+    affinity: ''
+    alias: ''
+    amp: '1'
+    comment: ''
+    freq: '1000'
+    maxoutbuf: '0'
+    minoutbuf: '0'
+    offset: '0'
+    phase: '0'
+    samp_rate: samp_rate
+    showports: 'False'
+    type: byte
+    waveform: analog.GR_SQR_WAVE
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1336, 56.0]
+    rotation: 0
+    state: disabled
 - name: blocks_add_xx_0
   id: blocks_add_xx
   parameters:
@@ -241,7 +264,7 @@ blocks:
     alias: ''
     begin_tag: pmt.PMT_NIL
     comment: ''
-    file: /home/comu2_grupoc1/Documentos/LABCOMUC1/Comu2_C1_judika/Practica_2/GNU_RADIO/sonido.wav
+    file: /home/comu2_grupoc1/Documentos/LABCOMUC1/Comu2_C1_judika/Practica_2/GNU_RADIO/rana.jpg
     length: '0'
     maxoutbuf: '0'
     minoutbuf: '0'
@@ -632,7 +655,7 @@ blocks:
     alpha7: '1.0'
     alpha8: '1.0'
     alpha9: '1.0'
-    autoscale: 'True'
+    autoscale: 'False'
     axislabels: 'True'
     color1: blue
     color10: dark blue
@@ -672,7 +695,7 @@ blocks:
     marker9: '-1'
     name: '""'
     nconnections: '1'
-    size: 8*Sps
+    size: 16*Sps
     srate: samp_rate
     stemplot: 'False'
     style1: '1'
@@ -955,7 +978,7 @@ blocks:
   parameters:
     alias: ''
     comment: ''
-    stream_id: p3
+    stream_id: p5
   states:
     bus_sink: false
     bus_source: false
