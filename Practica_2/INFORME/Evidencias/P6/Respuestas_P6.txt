@@ -1,0 +1,101 @@
+a. ¿Qué papel juega la siguiente combinación de bloques?
+Cambia la amplitud de la señal de entrada, pasándola de binario a una escala de-1 a 1
+
+b. ¿Qué papel juega el bloque “Interpolationg FIR Filter”, ¿cómo funciona?
+Pasa la señal de discreta a digital
+El bloque "Interpolating FIR Filter" en GNU Radio es utilizado para aumentar la tasa de muestreo de una señal a través de un filtro FIR (Finite Impulse Response) que realiza la interpolación. Aquí te explico cómo funciona y sus componentes clave:
+### Funcionamiento
+1. *Interpolación*:
+   - La interpolación consiste en aumentar la tasa de muestreo de una señal. Por ejemplo, si tienes una señal muestreada a 1 kHz y deseas elevarla a 2 kHz, el bloque interpola entre los puntos existentes, añadiendo nuevos puntos entre ellos.
+2. *Filtro FIR*:
+   - El bloque utiliza un filtro FIR para suavizar la señal interpolada. Esto es crucial, ya que al aumentar la tasa de muestreo, se pueden introducir artefactos si no se filtra adecuadamente.
+### Componentes
+1. *Tasa de Interpolación*:
+   - Se especifica un factor de interpolación \(L\). Por ejemplo, si \(L = 2\), se insertará un nuevo punto entre cada par de muestras originales.
+2. *Coeficientes del Filtro*:
+   - Los coeficientes del filtro FIR se pueden definir manualmente o generarse a través de funciones en GNU Radio. Estos coeficientes determinan la respuesta del filtro y afectan la calidad de la señal interpolada.
+3. *Ventana*:
+   - Se pueden aplicar ventanas (como la ventana de Hamming o Blackman) a los coeficientes del filtro para mejorar el rendimiento y reducir los efectos de lóbulos laterales.
+4. *Tamaño de la Señal de Entrada*:
+   - El bloque procesará la señal de entrada y generará una señal de salida con la tasa de muestreo aumentada, manteniendo la relación entre las muestras.
+
+	Item 1. Cambiar el número de puntos al graficar p3 debido a que no ha pasado por el proceso de 			interpolación
+
+	Item 2.	B= Rb/Sps
+	
+c. ¿Por qué razón la PSD de las señales binarias que provienen de una señal de audio es
+diferente a la que proviene de una foto siendo ellas igualmente señales binarias bipolares
+de forma rectangular?
+La diferencia en la densidad espectral de potencia (PSD) de las señales binarias que provienen de una señal de audio en comparación con las que provienen de una foto, a pesar de que ambas sean señales binarias bipolares de forma rectangular, se debe a varios factores:
+1. *Contenido de Frecuencia*: Las señales de audio y las imágenes tienen diferentes contenidos espectrales. Las señales de audio suelen tener un espectro más rico en frecuencias bajas y medias, mientras que las imágenes (cuando se convierten en señales binarias) pueden contener componentes de alta frecuencia debido a los cambios abruptos en la intensidad de los píxeles.
+2. *Tasa de Muestreo*: La tasa de muestreo y la frecuencia de muestreo utilizadas para convertir audio y fotos a señales binarias pueden ser diferentes. Esto afecta la distribución de las frecuencias en la PSD.
+3. *Modulación y Codificación*: El proceso de modulación y codificación de las señales de audio y de imagen puede diferir. Por ejemplo, el audio puede utilizar técnicas que optimizan la representación de sus características psicoacústicas, mientras que las imágenes pueden usar técnicas que preservan los detalles visuales.
+4. *Variación en la Energía de la Señal*: Las señales de audio tienden a tener una variabilidad en la energía que depende de la dinámica de la música o la voz, mientras que las imágenes pueden tener un nivel de energía más constante dependiendo de su contenido.
+5. *Ruido y Distorsión*: La forma en que se capturan y procesan las señales también puede influir en la PSD. El ruido y la distorsión en la captura y transmisión pueden ser diferentes en el caso de audio y de imágenes.
+
+d. ¿Qué papel juega el bloque “Throttle”?
+El bloque "Throttle" en un sistema de procesamiento de señales, especialmente en entornos como GNU Radio o MATLAB, tiene un papel crucial en la gestión de la tasa de muestreo y el control del flujo de datos. Aquí te detallo sus funciones principales:
+1. *Control de la Tasa de Muestreo*: El bloque "Throttle" se utiliza para limitar la tasa a la que se procesan los datos. Esto es especialmente útil cuando se trabaja con flujos de datos en tiempo real, ya que ayuda a evitar la sobrecarga del sistema.
+2. *Prevención de Pérdida de Datos*: Al regular la cantidad de datos que se envían a los siguientes bloques, "Throttle" ayuda a prevenir la pérdida de datos en situaciones donde el procesamiento de datos podría ser más rápido que la capacidad de la siguiente etapa del sistema.
+3. *Consumo de Recursos*: Este bloque también puede ser útil para controlar el consumo de CPU y memoria, ya que evita que el sistema se sature al procesar datos a una tasa que excede su capacidad.
+4. *Simulación de Condiciones del Mundo Real*: En simulaciones, puede ser utilizado para emular las condiciones de una transmisión real, donde las tasas de muestreo y procesamiento son limitadas por las capacidades del hardware.
+
+e. ¿Qué pasaría con la PSD si no se hace la conversión a señal bipolar, sino que la señal
+binaria en p4 solo tiene valores de 0 ó 1 en lugar de -1 ó 1?
+Si la señal binaria en un sistema de comunicación se representa solo con valores de 0 y 1 en lugar de -1 y 1 (como en una representación bipolar), esto afectará la densidad espectral de potencia (PSD) de la señal de varias maneras:
+1. *Energía de la Señal*: La representación bipolar (-1 y 1) utiliza toda la gama de amplitudes, lo que significa que la energía de la señal está distribuida de manera más uniforme. En cambio, al utilizar solo 0 y 1, la energía de la señal se concentra en una parte menor del espacio de amplitud, lo que puede resultar en una menor potencia promedio.
+2. *Contenido Espectral*: La PSD de una señal bipolar tiende a tener un espectro más ancho y más contenido en frecuencias debido a la alternancia de los niveles. Cuando se usa una señal binaria de 0 y 1, la señal tiende a tener menos variabilidad, lo que puede concentrar más energía en frecuencias más bajas y reducir el ancho de banda efectivo.
+3. *Afectación a la Tasa de Error*: Las señales que solo tienen valores de 0 y 1 pueden ser más susceptibles a errores en entornos ruidosos, lo que puede influir en la PSD al cambiar la forma en que la señal es recibida y procesada.
+4. *Dificultades en la Demodulación*: Si se utilizan técnicas de modulación que están optimizadas para señales bipolares, el uso de solo 0 y 1 puede hacer que la demodulación sea menos eficiente, lo que puede llevar a una degradación adicional de la calidad de la señal.
+
+f. Se supone que el ruido blanco tiene un ancho de banda infinito, ¿coincide esto con lo
+observado en GNU Radio?, ¿por qué?
+Sí *Inserte imagen*
+
+g. Se supone que una señal binaria aleatoria de forma rectangular tiene un ancho de banda
+infinito, ¿coincide esto con lo observado en GNU Radio y por qué?
+No *Inserte imagen*
+
+h. ¿Qué fórmula podría ayudar a calcular el número de lóbulos de la PSD de señal binaria
+aleatoria de forma rectangular cuando se conoce la frecuencia de muestreo y Sps? Nota:
+el lóbulo de la mitad se cuenta como dos porque tiene el doble de ancho que los demás.
+Para calcular el número de lóbulos de la densidad espectral de potencia (PSD) de una señal binaria aleatoria de forma rectangular, puedes usar la siguiente fórmula:
+\[
+N = 1 + 2 \cdot Sps
+\]
+Donde:
+- \( N \) es el número total de lóbulos en la PSD.
+- \( Sps \) es el número de muestras por símbolo.
+### Explicación:
+- La fórmula considera que cada símbolo en la señal binaria rectangular genera lóbulos en la PSD.
+- Cada símbolo contribuye con un lóbulo central y con dos lóbulos laterales.
+- Dado que el lóbulo central (que corresponde a la frecuencia cero) se cuenta como dos (debido a su mayor ancho), se añade 1 adicional al total de lóbulos generados por \( Sps \).
+Por lo tanto, si conoces la frecuencia de muestreo y \( Sps \), puedes usar esta fórmula para determinar el número total de lóbulos en la PSD de la señal.
+
+k. ¿Qué pasaría si en el bloque “Unpack K Bits” se configura el parámetro K como 16?
+k=16 *Inserte k1*
+k=8 *Inserte k2*
+
+l. ¿Cómo calcularía la frecuencia de muestreo a la entrada del bloque “Unpack K Bits” si
+conoce el número de lóbulos de la PSD y el ancho de banda de la señal?
+B*#lóbulos/2=fs/2
+
+m. ¿Cómo calcularía la frecuencia de muestreo a la salida del bloque “Unpack K Bits” si conoce
+la frecuencia de muestreo a la entrada?
+Fin*8=Fout
+
+n. ¿Cómo calcularía la frecuencia de muestreo a la salida del bloque “Char to Float” si conoce
+la frecuencia de muestreo a la entrada?
+Fin = Fout
+
+o. ¿Para qué caso de Sps la PSD de una señal binaria aleatoria bipolar es similar a la PSD
+de ruido blanco?
+Sps = 4 *Inserte imagen*
+
+p. ¿Qué cambios mínimos haría al flujograma, manipulando principalmente h, si desea que
+los bits en la señal binaria aleatoria tomen la forma de dientes de sierra?
+h=(-1,-1, 0,1,1) *Inserte imagen*
+
+q. ¿Qué cambios mínimos haría al flujograma, manipulando principalmente h, si desea que la
+señal binaria aleatoria tenga codificación de línea Unipolar RZ, es decir como se muestra
+en la Fig. 3? (Didier hace de este en adelante)

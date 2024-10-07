@@ -1,0 +1,5 @@
+el cambio de color entre el verde y el rojo o el azul representa las altas frecuencias, por ende, aparecen picos entre la señal
+
+el verde al ser el color dominante representa la capa de fondo, la cual, hace alusión a las bajas frecuencias
+
+a medida que hay un cambio de color, existe un pico  en la representacion temporal , lo que provoca el aumento de la PSD en su frecuencia central, fuente:karla bolsman

@@ -1,0 +1,4 @@
+16
+bolsman
+la PSD depende del sample rate y este depende de sps
+pero, siempre es el mismo por la seed
