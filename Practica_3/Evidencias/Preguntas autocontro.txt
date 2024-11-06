@@ -1,0 +1,19 @@
+1.Preguntas de auto control sobre el flujograma RF_EC_xxx.grc:
+I.Generar la versión paso-bandas (señal RF) de una modulación ha obligado a usar un valor muy alto para SPS. ¿Cómo se sabría que el valor elegido es apropiado o suficientemente alto?
+-> Porque alcanza a suceder al menos un ciclo de portadora en la transmisión de cada bit
+
+II.¿Qué pasaría si el bloque “Multiply Const” que se activa para la modulación BPSK se
+configura con el valor 1, ¿es lo mismo que quitarlo?
+-> Deja los valores de amplitud originales (-0.5, 0.5). Y sí, sería lo mismo que quitarlo
+
+IV.¿Por qué el bloque “Constant Source” se configura como cero para la modulación OOK pero no para la BPSK y la FSK?
+->El cambio solo se hace en el caso de la fsk, dado que en ella se requiere una amplitud constante mientras se cambia la entrada de la fase. Por otro lado, durante la ook y la bpsk solo se desea cambiar la amplitud, entonces se pone el bloque en las entradas de fase para que no haga nada  (ook 1 y 0, bpsk 1 y -1)
+
+V.¿Por qué razón en el caso de la Modulación OOK la señal modulante entra por la primera entrada (la superior) de los VCO a diferencia de la BPSK y FSK que entra por la segunda entrada (la inferior) de los VCO?
+-> No es cierto, solo para el caso de la fsk se lleva la señal modulante por la entrada inferior, esto debido a que tal modulación requiere de un cambio en frecuencia, mientras las otras dos (ook y bpsk) solo requieren de un cambio en amplitude
+
+VI.Para el caso de la Modulación BPSK, sería posible reubicar el bloque “Interpolating FIR Filter para que quede inmediatamente antes de los VCO”
+-> Así fué como se hizo desde el inicio
+
+VII.Para el caso de la Modulación FSK, sería posible reubicar el bloque “Interpolating FIR Filter para que quede inmediatamente antes de los VCO”
+-> No sería posibles pues se le estaría quitando la parte inegradora
