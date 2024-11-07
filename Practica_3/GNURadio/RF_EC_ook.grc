@@ -171,7 +171,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1101, 363]
+    coordinate: [1040, 368.0]
     rotation: 180
     state: true
 - name: analog_random_source_x_0

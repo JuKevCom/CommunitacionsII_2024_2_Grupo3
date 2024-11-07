@@ -17,3 +17,18 @@ VI.Para el caso de la Modulación BPSK, sería posible reubicar el bloque “Int
 
 VII.Para el caso de la Modulación FSK, sería posible reubicar el bloque “Interpolating FIR Filter para que quede inmediatamente antes de los VCO”
 -> No sería posibles pues se le estaría quitando la parte inegradora
+
+2. Otras preguntas de control
+b. Para los valores dados del caso FSK en el flujograma por defecto, ¿sería posible calcular
+el valor máximo permitido para la frecuencia de la portadora, pensado en términos de la
+versión en RF?
+-> ds > 2000 & ds < 65536
+
+c. Para los valores dados del caso FSK en el flujograma por defecto, ¿sería posible calcular
+el valor máximo permitido para la desviación de frecuencia, pensado en términos de
+generar solo la EC?
+->
+
+d. Para los valores dados del caso BPSK en el flujograma por defecto, ¿sería posible calcular
+el mínimo valor de SPS pensado en términos de poder generar la versión en RF?
+-> Sps=32
